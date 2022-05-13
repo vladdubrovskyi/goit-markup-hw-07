@@ -44,8 +44,6 @@
     }
 }
 
-
-
 .is-hidden {
     opacity: 0;
     visibility: hidden;
@@ -98,18 +96,16 @@
     }
 }
 
-
-
-.modal-input:focus+.modal-form-icon {
-    fill: $accent-color;
-}
-
 .modal-form-icon {
     position: absolute;
     top: 0;
     left: 0;
     transform: translateY(50%) translateX(12px);
     transition: fill $typical-timing-duration $typical-timing-function;
+  
+    .modal-input:focus+ & {
+        fill: $accent-color;
+    }
 }
 
 .comment-wrap {
@@ -130,14 +126,12 @@
     &:focus {
         border-color: $accent-color;
     }
-}
-
-.comment-form::placeholder {
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.01em;
-    color: rgba(117, 117, 117, 0.5);
-    
+    &::placeholder {
+            font-size: 14px;
+            line-height: 1.14;
+            letter-spacing: 0.01em;
+            color: rgba(117, 117, 117, 0.5);
+        }
 }
 
 .check-thumb {
@@ -153,18 +147,20 @@
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: $text-content-color;
+
+    &::before {
+            content: "";
+            width: 16px;
+            height: 15px;
+            border: 2px solid #212121;
+            border-radius: 3px;
+            margin-right: 8px;
+            transition: background-color $typical-timing-duration $typical-timing-function,
+                background-image $typical-timing-duration $typical-timing-function;
+        }
 }
 
-.check-modal-label::before {
-    content: "";
-    width: 16px;
-    height: 15px;
-    border: 2px solid #212121;
-    border-radius: 3px;
-    margin-right: 8px;
-    transition: background-color $typical-timing-duration $typical-timing-function,
-        background-image $typical-timing-duration $typical-timing-function;
-}
+
 
 .checkbox-modal:checked+.check-modal-label::before {
     background-color: $accent-color;
